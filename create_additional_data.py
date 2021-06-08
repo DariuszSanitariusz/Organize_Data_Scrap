@@ -21,7 +21,7 @@ class CreateAdditionalData:
 
     def create_id(self, name, prof):
         res = requests.get(self.url)
-        self.id = int(res.elapsed.total_seconds()*10e5)
+        self.id = int(res.elapsed.total_seconds()*10**5)+random.randint(10**3, 10**5)
 
     def create_mail(self, name):
         name = name.replace(' ', '_')

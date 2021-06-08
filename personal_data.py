@@ -30,4 +30,15 @@ class PersonalData:
         self.list_of_records.append(record)
 
     def sort_records(self, sort_type):
-        sort_type(self.list_of_records)
+        records_ids = []
+
+        for record in self.list_of_records:
+            records_ids.append(record[0])
+
+        sort_type(records_ids)
+
+        for i, r_id in enumerate(records_ids):
+            for n, record in enumerate(self.list_of_records):
+                if r_id == record[0]:
+                    swap = self.list_of_records.pop(n)
+                    self.list_of_records.insert(i, swap)
