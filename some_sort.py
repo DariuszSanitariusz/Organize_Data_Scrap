@@ -78,7 +78,7 @@ def bubble_sort(a):
     in_progress = True
     while in_progress:
         in_progress = False
-        for i in range(len(a)):
+        for i, n in enumerate(a):
             if i != len(a)-1:
                 if a[i] > a[i+1]:
                     in_progress = True
@@ -87,7 +87,7 @@ def bubble_sort(a):
 
 
 def quicksort(a):
-    lenght_of_a = len(a)
+    length_of_a = len(a)
     a = [a]
     in_progress = True
     while in_progress:
@@ -101,7 +101,7 @@ def quicksort(a):
         a.extend(result)
         a = list(filter(lambda x: x != [], a))
 
-        if len(a) == lenght_of_a:
+        if len(a) == length_of_a:
             in_progress = False
 
 
