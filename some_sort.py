@@ -35,6 +35,24 @@ class SomeSort:
 
     def merge_sort(self):
         a = self.to_sort
+        a = [a]
+        l_quantity = len(a[0])
+        while len(a) != l_quantity:
+            result = []
+            for n in a:
+                b = []
+                split_point = (len(n) // 2)
+                for i in range(split_point):
+                    b.append(n[i])
+                    n.pop(i)
+                result.append(b)
+                result.append(n)
+            a = result
+
+
+
+
+
 
 
 class MergeSort:

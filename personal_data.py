@@ -42,3 +42,4 @@ class PersonalData:
                 if r_id == record[0]:
                     swap = self.list_of_records.pop(n)
                     self.list_of_records.insert(i, swap)
+                    break
