@@ -1,5 +1,42 @@
 import random
 
+
+class SomeSort:
+
+    def __init__(self, to_sort):
+        self.to_sort = to_sort
+
+    def bubble_sort(self):
+        a = self.to_sort
+        in_progress = True
+        while in_progress:
+            in_progress = False
+            for i, n in enumerate(a):
+                if i != len(a) - 1:
+                    if a[i] > a[i + 1]:
+                        in_progress = True
+                        b = a.pop(i + 1)
+                        a.insert(i, b)
+
+    def quicksort(self):
+        a = self.to_sort
+        a = [a]
+        in_progress = True
+        while in_progress:
+            result = []
+            for num in a:
+                pivot = random.choice(num)
+                result.append([x for x in num if x < pivot])
+                result.append([pivot])
+                result.append([x for x in num if x > pivot])
+                num.clear()
+            a.extend(result)
+            a = list(filter(lambda x: x != [], a))
+
+    def merge_sort(self):
+        a = self.to_sort
+
+
 class MergeSort:
     """
     merge sort class
@@ -69,40 +106,6 @@ class MergeSort:
             merge = result
         # saving outcome
         self.list_merge = merge[0]
-
-
-def bubble_sort(a):
-    """
-    bubble sort function
-    """
-    in_progress = True
-    while in_progress:
-        in_progress = False
-        for i, n in enumerate(a):
-            if i != len(a)-1:
-                if a[i] > a[i+1]:
-                    in_progress = True
-                    b = a.pop(i+1)
-                    a.insert(i, b)
-
-
-def quicksort(a):
-    length_of_a = len(a)
-    a = [a]
-    in_progress = True
-    while in_progress:
-        result = []
-        for num in a:
-            pivot = random.choice(num)
-            result.append([x for x in num if x < pivot])
-            result.append([pivot])
-            result.append([x for x in num if x > pivot])
-            num.clear()
-        a.extend(result)
-        a = list(filter(lambda x: x != [], a))
-
-        if len(a) == length_of_a:
-            in_progress = False
 
 
 example_list = [5, 8, 2, 9, 3, 4, 1, 6, 0]

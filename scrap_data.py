@@ -40,8 +40,10 @@ class ScrapData:
 
         for many_people in dis_list:
             many_people = many_people.replace(' ', '_')
+
             res = requests.get('https://en.wikipedia.org/wiki/{}'.format(many_people))
             soup = bs4.BeautifulSoup(res.text, 'lxml')
+
             names = soup.select('.mw-parser-output')[0]
             names = names.text.split('\n')[2:-9]
 
@@ -54,6 +56,7 @@ class ScrapData:
         for person in self.people_list:
             dates = []
             prof = 'not_included'
+
             if not re.search(r'[(]', person):
                 person = person.split(',')
                 name = person[0]
@@ -61,10 +64,13 @@ class ScrapData:
                 continue
             for date_match in re.finditer(r'\d\d\d\d', person):
                 dates.append(date_match.group())
-            match = re.search(r'\s[(]', person)
-            name = person[0:match.start()]
+
+            name_match = re.search(r'\s[(]', person)
+            name = person[0:name_match.start()]
+
             desc_match = re.search(r'[),]', person)
             description = person[desc_match.end()+1:]
+
             prof_match = re.search(r'[(][a-zA-Z]+[)]', person)
             if prof_match:
                 prof = prof_match.group()
