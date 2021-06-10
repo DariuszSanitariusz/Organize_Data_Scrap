@@ -19,7 +19,7 @@ class CreateAdditionalData:
             target = name + prof
             self.url = 'https://en.wikipedia.org/wiki/{}'.format(target)
 
-    def create_id(self, name, prof):
+    def create_id(self):
         res = requests.get(self.url)
         self.id = int(res.elapsed.total_seconds()*10**5)+random.randint(10**3, 10**5)
 
@@ -27,5 +27,5 @@ class CreateAdditionalData:
         name = name.replace(' ', '_')
         self.mail = name + str(random.randint(11, 99)) + '@' + random.choice(self.domain)
 
-    def __str__(self):
+    def get_attr(self):
         return self.id, self.mail, self.url

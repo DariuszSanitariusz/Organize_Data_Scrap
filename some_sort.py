@@ -5,7 +5,6 @@ class SomeSort:
 
     def __init__(self, to_sort):
         self.to_sort = to_sort
-        self.sorted = None
 
     def bubble_sort(self):
         a = self.to_sort
@@ -18,7 +17,7 @@ class SomeSort:
                         in_progress = True
                         b = a.pop(i + 1)
                         a.insert(i, b)
-        self.sorted = a
+        return a
 
     def quicksort(self):
         a = self.to_sort
@@ -37,7 +36,7 @@ class SomeSort:
             a = list(filter(lambda x: x != [], a))
             if len(a) == a_length:
                 in_progress = False
-        self.sorted = [num[0] for num in a]
+        return [num[0] for num in a]
 
     def merge_sort(self):
         a = self.to_sort
@@ -81,4 +80,4 @@ class SomeSort:
                             a[i].clear()
                 a[i] = result
             a = [x for x in a[::2]]
-        self.sorted = [num for num in a[0]]
+        return [num for num in a[0]]

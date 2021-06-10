@@ -76,3 +76,6 @@ class ScrapData:
                 prof = prof_match.group()
 
             self.extracted_data.append((name, prof, dates, description))
+
+    def __len__(self):
+        return len(self.extracted_data)

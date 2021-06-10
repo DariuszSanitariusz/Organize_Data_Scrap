@@ -11,7 +11,7 @@ class CreateCsv:
 
     def index_line(self):
         wiki_data_writer = csv.writer(self.wiki_data_csv, delimiter=',')
-        wiki_data_writer.writerow([id, 'name', 'birth_year', 'death_year', 'mail', 'description', 'url'])
+        wiki_data_writer.writerow(['id', 'name', 'birth_year', 'death_year', 'mail', 'description', 'url'])
 
     def add_line(self, row):
         wiki_data_writer = csv.writer(self.wiki_data_csv, delimiter=',')

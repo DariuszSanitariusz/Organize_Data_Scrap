@@ -10,8 +10,6 @@ class PersonalData:
         self.mail = None
         self.url = None
 
-        self.list_of_records = []
-
     def create_record_from_scrapped_data(self, *args):
         for name, prof, date, description in args:
             self.name = name
@@ -26,20 +24,9 @@ class PersonalData:
             self.mail = mail
             self.url = url
 
-    def add_record_to_list(self, record):
-        self.list_of_records.append(record)
-
-    def sort_records(self, sort_type):
-        records_ids = []
-
-        for record in self.list_of_records:
-            records_ids.append(record[0])
-
-        sort_type(records_ids)
-
-        for i, r_id in enumerate(records_ids):
-            for n, record in enumerate(self.list_of_records):
-                if r_id == record[0]:
-                    swap = self.list_of_records.pop(n)
-                    self.list_of_records.insert(i, swap)
-                    break
+    def list_info(self):
+        # date = str(self.date_of_birth)+','+str(self.date_of_death)
+        # s_id = str(self.id)
+        # str_info = s_id+','+self.name+','+date+','+self.mail+','+self.description+','+self.url
+        l_info = [self.id, self.name, self.date_of_birth, self.date_of_death, self.mail, self.description, self.url]
+        return l_info
